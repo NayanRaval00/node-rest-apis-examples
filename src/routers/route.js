@@ -119,6 +119,23 @@ router.post('/uploadImage', imageUpload.single('image'), (req, res) => {
 })
 // image upload
 
+router.get('/test-api', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+
+  // Create a JSON object
+  const data = {
+    name: 'Nayan Raval',
+    age: new Date().getFullYear() - 2001,
+    occupation: 'Software Engineer'
+  };
+
+  // Stringify the JSON object
+  const jsonData = JSON.stringify(data);
+
+  // Send the JSON data in the response body
+  return res.end(jsonData);
+})
+
 
 // genrate pdf
 router.get('/download-pdf', (req, res) => {
